@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build a 2-page marketing site (landing page + pricing) for Solwyn with a waitlist email capture, deployed on Vercel.
+**Goal:** Build a 2-page marketing site (landing page + pricing) for Solwyn with a waitlist email capture.
 
-**Architecture:** Next.js 16 App Router with static pages. Server Components for everything except the waitlist form (client component for form state), hamburger menu, and FAQ accordion. Waitlist emails stored via a Next.js API route with JSON file storage for local dev.
+**Architecture:** Next.js 16 App Router with static pages. Server Components for everything except the waitlist form (client component for form state), hamburger menu, and FAQ accordion. Waitlist emails stored via a Next.js API route with JSON file on disk.
 
-**Tech Stack:** Next.js 16, Tailwind CSS 4, Instrument Serif + Geist Mono fonts via `next/font`, Vercel deployment.
+**Tech Stack:** Next.js 16, Tailwind CSS 4, Instrument Serif + Geist Mono fonts via `next/font`. Hosting TBD.
 
 **Spec:** `docs/superpowers/specs/2026-03-17-solwyn-website-design.md`
 
@@ -1725,7 +1725,7 @@ git commit -m "feat: add visual polish, section dividers, nav scroll shadow, res
 
 ---
 
-## Task 10: Build Verification + Deploy Prep
+## Task 10: Build Verification
 
 **Files:**
 - Modify: `next.config.ts` (if needed)
@@ -1759,13 +1759,5 @@ node_modules/
 
 ```bash
 git add -A
-git commit -m "chore: production build verification and deploy prep"
+git commit -m "chore: production build verification"
 ```
-
-- [ ] **Step 5: Summary**
-
-At this point the site is ready for:
-- `vercel deploy` for preview deployment
-- `vercel --prod` for production deployment to solwyn.ai
-
-The MPI site's "Learn More →" CTA should point to the deployed solwyn.ai URL.

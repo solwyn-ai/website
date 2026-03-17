@@ -331,9 +331,9 @@ Same waitlist capture as landing page bottom CTA.
 - **Framework:** Next.js 16 (App Router)
 - **Styling:** Tailwind CSS 4
 - **Fonts:** Instrument Serif (headlines), system font stack (body), Geist Mono (code)
-- **Deployment:** Vercel
+- **Deployment:** TBD (runs with `npm run build && npm run start`)
 - **Animation:** CSS animations for the architecture diagram pulse effect. No heavy JS animation libraries.
-- **Waitlist backend:** Next.js API route → JSON file on disk for local dev, Vercel KV (via Upstash Redis from Marketplace) for production. Simplest durable option with zero external dependencies beyond Vercel.
+- **Waitlist backend:** Next.js API route → JSON file on disk. Simple and portable.
 
 ### File Structure
 
@@ -411,4 +411,4 @@ No copy needs to be invented from scratch. The brainstorm docs contain all the r
 | CTA type? | Waitlist email capture | Product nearly ready but not shipped yet |
 | Serif font choice? | Instrument Serif | Editorial weight without Playfair's overuse. Test during build. |
 | Architecture diagram | CSS/SVG, not image | Crisp at all sizes, animatable, no asset management |
-| Waitlist storage | Upstash Redis (Vercel KV) | Zero external deps beyond Vercel Marketplace. JSON file fallback for local dev. |
+| Waitlist storage | JSON file on disk | Simple, portable, no external dependencies. Swap to a DB when hosting is decided. |
