@@ -97,7 +97,7 @@ CSS/SVG illustration showing the data flow:
 
 **Nav bar:**
 - Logo: "SOLWYN" in bold letterspaced type (or "Solwyn" in serif) + "Control Plane" label in muted small caps
-- Links: Pricing · Docs · GitHub
+- Links: Pricing · Docs (links to `#` with "Coming soon" tooltip until docs site exists) · GitHub (links to github.com/solwyn-ai)
 - Right side: "Get early access" button (compact)
 
 ### Section 2: The Problem (Horror Stories)
@@ -107,7 +107,7 @@ CSS/SVG illustration showing the data flow:
 **Content:**
 - **$47,000** — "Recursive LangChain agent ran 11 days unnoticed. No cost ceiling."
 - **579 outages** — "Anthropic experienced 579 incidents in 12 months. Avg 29/month."
-- **$82,314** — "Stolen API key exploited for 48 hours. No spending cap."
+- **$82,314** — "Stolen Gemini API key exploited for 48 hours. No spending cap."
 
 **Kicker line (below cards):** "Observability tells you what went wrong. Solwyn prevents it."
 
@@ -132,7 +132,7 @@ Three feature sections, each with a product-preview visual on one side and text 
   ```
   Project          Model          7d Cost    Trend
   search-agent     gpt-4o         $142.30    ↑ 23%
-  chat-bot         claude-3.5     $87.50     ↓ 12%
+  chat-bot         claude-sonnet   $87.50     ↓ 12%
   summarizer       gpt-4o-mini    $12.80     → flat
   ```
 - Headline: "Know which agent is burning the budget."
@@ -333,7 +333,7 @@ Same waitlist capture as landing page bottom CTA.
 - **Fonts:** Instrument Serif (headlines), system font stack (body), Geist Mono (code)
 - **Deployment:** Vercel
 - **Animation:** CSS animations for the architecture diagram pulse effect. No heavy JS animation libraries.
-- **Waitlist backend:** Next.js API route → storage TBD (could be simple JSON, Vercel KV, or a Google Sheet for MVP)
+- **Waitlist backend:** Next.js API route → JSON file on disk for local dev, Vercel KV (via Upstash Redis from Marketplace) for production. Simplest durable option with zero external dependencies beyond Vercel.
 
 ### File Structure
 
@@ -365,6 +365,27 @@ website/
 └── package.json
 ```
 
+### Responsive Design
+
+Breakpoints follow Tailwind defaults: `sm` (640px), `md` (768px), `lg` (1024px).
+
+**Mobile (< 768px):**
+- Nav collapses to hamburger menu
+- Hero: text stacks above architecture diagram (full width)
+- Stat cards: vertical stack (1 column)
+- Feature pillars: visual above text (no alternating)
+- Privacy columns: stack vertically (receives → never sees)
+- Comparison table: horizontal scroll with sticky first column
+- How It Works: vertical steps (numbered list)
+- Pricing cards: single column stack, recommended tier (Solo) first
+- Feature comparison matrix: horizontal scroll with sticky first column
+- FAQ: full width, no change needed
+
+**Tablet (768px–1024px):**
+- Stat cards: 3-up row (same as desktop, tighter spacing)
+- Pricing cards: 2x2 grid
+- Everything else: same as desktop with tighter margins
+
 ---
 
 ## 7. Content Sources
@@ -374,6 +395,8 @@ All copy is derived from:
 - `brainstorm/2026-03-14-pricing-strategy-v3.md` — pricing details, overage rates, tier features, competitive positioning
 - `brainstorm/core-repo-README.md` — code snippets, architecture diagram, technical accuracy
 - `brainstorm/solwyn-competitive-landscape.md` — competitor comparison data, market stats, horror story figures
+
+**Note:** The pricing strategy v3 is the authoritative source for all pricing, tier names, and overage rates. The PRD's Section 6 (Pricing) uses an older tier structure and is superseded. The competitive landscape doc uses the earlier working name "AgentVault" — all references should be read as "Solwyn."
 
 No copy needs to be invented from scratch. The brainstorm docs contain all the raw material.
 
@@ -388,4 +411,4 @@ No copy needs to be invented from scratch. The brainstorm docs contain all the r
 | CTA type? | Waitlist email capture | Product nearly ready but not shipped yet |
 | Serif font choice? | Instrument Serif | Editorial weight without Playfair's overuse. Test during build. |
 | Architecture diagram | CSS/SVG, not image | Crisp at all sizes, animatable, no asset management |
-| Waitlist storage | TBD during implementation | JSON file, Vercel KV, or Google Sheet — MVP decision |
+| Waitlist storage | Upstash Redis (Vercel KV) | Zero external deps beyond Vercel Marketplace. JSON file fallback for local dev. |
