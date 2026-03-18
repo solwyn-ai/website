@@ -26,8 +26,9 @@ export default function Home() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-6 text-lg text-secondary leading-relaxed">
-                A recursive agent cost someone $47,000. A stolen API key cost
-                another $82,000. Three lines of Python would have stopped both.
+                A recursive agent cost someone $47,000. A forgotten staging
+                deploy doubled another team&apos;s bill for three weeks. Three
+                lines of Python would have stopped both.
               </p>
             </Reveal>
 
@@ -109,8 +110,8 @@ export default function Home() {
           </Reveal>
           <Reveal delay={200} className="flex-1">
             <StatCard
-              stat="$82,314"
-              description="A stolen Gemini API key was exploited for 48 hours straight. No spending cap existed to stop it. One did after the bill."
+              stat="$14,000"
+              description="A staging deployment ran alongside production for three weeks. Double the traffic, double the cost. A per-project budget would have flagged it on day one."
             />
           </Reveal>
         </div>
