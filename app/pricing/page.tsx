@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PricingCard } from "@/components/pricing-card";
+import { PricingTiers } from "@/components/pricing-toggle";
 import { PricingComparison } from "@/components/pricing-comparison";
 import { FAQ } from "@/components/faq";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -63,75 +63,9 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Tier Cards */}
+      {/* Tier Cards with toggle */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <PricingCard
-            name="FREE"
-            price="$0"
-            period="/mo"
-            description="Full protection. Zero friction. See if it fits."
-            cta="Start free"
-            features={[
-              "5K requests/month",
-              "1 project",
-              "Spending caps",
-              "Circuit breaker + failover",
-              "Cost attribution by project",
-              "7-day cost history",
-              "Email alerts",
-              "No credit card required",
-            ]}
-          />
-          <PricingCard
-            name="SOLO"
-            price="$49"
-            period="/mo"
-            description="$49/mo to protect against $47K mistakes. 959x return."
-            cta="Join waitlist"
-            features={[
-              "50K requests/month",
-              "3 projects",
-              "Cost attribution by project + model",
-              "30-day cost history",
-              "Email + webhook alerts",
-            ]}
-          />
-          <PricingCard
-            name="TEAM"
-            price="$149"
-            period="/mo"
-            description="$15/agent/month for teams running 10+ agents."
-            badge="MOST POPULAR"
-            highlighted
-            cta="Join waitlist"
-            features={[
-              "500K requests/month",
-              "10 projects",
-              "Cost attribution + team breakdown",
-              "90-day cost history",
-              "Slack alerts",
-              "30-day audit log",
-              "Priority email support",
-            ]}
-          />
-          <PricingCard
-            name="BUSINESS"
-            price="$399"
-            period="/mo"
-            description="One incident costs more than a year of this plan."
-            cta="Join waitlist"
-            features={[
-              "5M requests/month",
-              "Unlimited projects",
-              "Full cost breakdown",
-              "1-year cost history",
-              "PagerDuty alerts",
-              "1-year tamper-evident audit log",
-              "Priority support + SLA",
-            ]}
-          />
-        </div>
+        <PricingTiers />
 
         {/* Enterprise strip */}
         <div className="mt-6 border border-border p-6 rounded-sm flex flex-col sm:flex-row justify-between items-center gap-4">

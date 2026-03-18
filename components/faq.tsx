@@ -33,7 +33,7 @@ const FAQS = [
   },
   {
     q: "Is there an annual discount?",
-    a: "Yes. Annual billing offers a 2-month discount (e.g., Solo at $490/year = $40.83/mo effective).",
+    a: "Yes. Annual billing saves you two months — Solo drops to $41/mo, Team to $124/mo, and Business to $332/mo. Use the toggle on the pricing page to see annual rates.",
   },
 ];
 
