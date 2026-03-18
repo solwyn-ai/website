@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function WaitlistForm({ id }: { id?: string }) {
+export function WaitlistForm({ id, dark }: { id?: string; dark?: boolean }) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
@@ -31,7 +31,10 @@ export function WaitlistForm({ id }: { id?: string }) {
 
   if (state === "success") {
     return (
-      <div id={id} className="text-sm text-secondary space-y-1">
+      <div
+        id={id}
+        className={`text-sm space-y-1 ${dark ? "text-dark-muted" : "text-secondary"}`}
+      >
         <div className="flex items-center gap-2">
           <svg
             width="16"
@@ -50,7 +53,7 @@ export function WaitlistForm({ id }: { id?: string }) {
           </svg>
           You&apos;re in. We&apos;ll email you when the SDK is ready.
         </div>
-        <p className="text-xs text-muted">
+        <p className={`text-xs ${dark ? "text-dark-muted" : "text-muted"}`}>
           Early access members lock in current pricing permanently.
         </p>
       </div>
@@ -65,13 +68,21 @@ export function WaitlistForm({ id }: { id?: string }) {
         placeholder="you@company.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 bg-cream-dark border border-border px-4 py-2.5 text-sm text-primary placeholder:text-muted focus:outline-none focus:border-secondary transition-colors"
+        className={`flex-1 border px-4 py-2.5 text-sm focus:outline-none transition-colors ${
+          dark
+            ? "bg-dark-surface border-white/10 text-dark-text placeholder:text-dark-muted focus:border-white/30"
+            : "bg-cream-dark border-border text-primary placeholder:text-muted focus:border-secondary"
+        }`}
         disabled={state === "loading"}
       />
       <button
         type="submit"
         disabled={state === "loading"}
-        className="bg-primary text-cream px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors disabled:opacity-60 whitespace-nowrap"
+        className={`px-5 py-2.5 text-sm font-medium transition-colors disabled:opacity-60 whitespace-nowrap ${
+          dark
+            ? "bg-cream text-primary hover:bg-cream/90"
+            : "bg-primary text-cream hover:bg-primary/90"
+        }`}
       >
         {state === "loading" ? "..." : "Protect my AI spend"}
       </button>

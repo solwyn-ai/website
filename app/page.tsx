@@ -8,6 +8,7 @@ import { CostTable } from "@/components/cost-table";
 import { PrivacyComparison } from "@/components/privacy-comparison";
 import { CompetitorTable } from "@/components/competitor-table";
 import { HowItWorks } from "@/components/how-it-works";
+import { ProviderLogos } from "@/components/provider-logos";
 import { Reveal } from "@/components/reveal";
 
 export default function Home() {
@@ -75,6 +76,11 @@ export default function Home() {
             <ArchitectureDiagram />
           </Reveal>
         </div>
+      </section>
+
+      {/* Provider logos */}
+      <section className="max-w-6xl mx-auto px-6 py-10 border-t border-border">
+        <ProviderLogos />
       </section>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -180,24 +186,26 @@ export default function Home() {
         <hr className="border-border" />
       </div>
 
-      {/* Bottom CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <Reveal>
-          <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-primary tracking-tight">
-            The next surprise AI bill hasn&apos;t happened yet.
-          </h2>
-          <p className="mt-4 text-secondary max-w-lg mx-auto">
-            Three lines of Python. Under five minutes. Your agents get budget
-            limits, automatic failover, and cost visibility — and your prompts
-            never leave your environment.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <WaitlistForm />
-          </div>
-          <p className="mt-3 text-xs text-muted">
-            Free tier. No credit card. No infrastructure changes.
-          </p>
-        </Reveal>
+      {/* Bottom CTA — dark for visual weight */}
+      <section className="bg-dark-bg">
+        <div className="max-w-6xl mx-auto px-6 py-24 text-center">
+          <Reveal>
+            <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-dark-text tracking-tight">
+              The next surprise AI bill hasn&apos;t happened yet.
+            </h2>
+            <p className="mt-4 text-dark-muted max-w-lg mx-auto">
+              Three lines of Python. Under five minutes. Your agents get budget
+              limits, automatic failover, and cost visibility — and your prompts
+              never leave your environment.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <WaitlistForm dark />
+            </div>
+            <p className="mt-3 text-xs text-dark-muted">
+              Free tier. No credit card. No infrastructure changes.
+            </p>
+          </Reveal>
+        </div>
       </section>
     </>
   );
