@@ -8,16 +8,24 @@ const FAQS = [
     a: "Each LLM call instrumented by the Solwyn SDK counts as one request. Streaming calls count as one request.",
   },
   {
+    q: "Which providers and models do you support?",
+    a: "Solwyn wraps any LLM client that follows standard API patterns. OpenAI, Anthropic, Google, Mistral, Cohere, and any OpenAI-compatible provider work out of the box. If you can call it from Python, Solwyn can wrap it.",
+  },
+  {
     q: "What happens when I hit my request limit?",
     a: "Your agents keep running. Overage charges accrue automatically. No service interruption.",
   },
   {
     q: "Do you ever see my prompts or responses?",
-    a: "Never. The SDK wraps your client locally. LLM calls go directly from your app to the provider. Only metadata reaches Solwyn.",
+    a: "Never. This is architecture, not a policy promise. The SDK wraps your client locally — LLM calls go directly from your app to the provider. Solwyn is never in the request path. Only metadata (token counts, costs, latency) reaches us.",
   },
   {
     q: "What if Solwyn's cloud goes down?",
-    a: "Your agents keep running. The SDK enforces cached budget limits locally and continues allowing requests (fail-open by default).",
+    a: "Your agents keep running. The SDK enforces cached budget limits locally and continues allowing requests. We fail open by default — Solwyn going down should never take your agents down with it.",
+  },
+  {
+    q: "What if Solwyn isn't worth it?",
+    a: "Every paid plan starts with a 14-day trial. No credit card required. If you don't see value, you never pay. And because Solwyn is a thin SDK wrapper, removing it takes one line of code — no migration, no lock-in, no cleanup.",
   },
   {
     q: "Can I switch plans anytime?",

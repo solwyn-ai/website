@@ -8,7 +8,6 @@ import { CostTable } from "@/components/cost-table";
 import { PrivacyComparison } from "@/components/privacy-comparison";
 import { CompetitorTable } from "@/components/competitor-table";
 import { HowItWorks } from "@/components/how-it-works";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,25 +18,21 @@ export default function Home() {
           {/* Left: copy */}
           <div className="flex-1 max-w-xl">
             <h1 className="font-[family-name:var(--font-serif)] text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary">
-              The control plane that never sees your prompts.
+              Your AI agents don&apos;t have a spending limit.
             </h1>
             <p className="mt-6 text-lg text-secondary leading-relaxed">
-              Hard spending caps. Automatic failover. Per-agent cost
-              attribution. And we never see your data.
+              A recursive agent cost someone $47,000. A stolen API key cost
+              another $82,000. Three lines of Python would have stopped both.
             </p>
 
             <div className="mt-8">
               <WaitlistForm id="waitlist" />
             </div>
 
-            <div className="mt-4">
-              <Link
-                href="/pricing"
-                className="text-sm text-secondary hover:text-primary transition-colors"
-              >
-                View pricing &rarr;
-              </Link>
-            </div>
+            <p className="mt-3 text-xs text-muted">
+              Free tier. 5K requests/month. No credit card. Works with every
+              major LLM provider.
+            </p>
 
             {/* Code snippet */}
             <div className="mt-10 bg-cream-dark rounded-sm p-5 font-[family-name:var(--font-mono)] text-sm leading-relaxed">
@@ -52,8 +47,8 @@ export default function Home() {
                 <span className="text-muted">=</span>{" "}
                 <span className="text-primary">Solwyn</span>
                 <span className="text-muted">(</span>
-                <span className="text-primary">openai.OpenAI</span>
-                <span className="text-muted">(),</span>{" "}
+                <span className="text-primary">your_llm_client</span>
+                <span className="text-muted">,</span>{" "}
                 <span className="text-primary">api_key</span>
                 <span className="text-muted">=</span>
                 <span className="text-accent">
@@ -62,7 +57,7 @@ export default function Home() {
                 <span className="text-muted">)</span>
               </div>
               <div className="text-muted">
-                # That&apos;s it. Your existing code works unchanged.
+                # Any provider. Budget enforced. Failover enabled.
               </div>
             </div>
           </div>
@@ -80,23 +75,35 @@ export default function Home() {
 
       {/* Horror Stories */}
       <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-6">
+          REAL INCIDENTS. REAL INVOICES.
+        </h2>
         <div className="flex flex-col sm:flex-row gap-4">
           <StatCard
             stat="$47,000"
-            description="Recursive LangChain agent ran 11 days unnoticed. No cost ceiling."
+            description="A recursive LangChain agent ran for 11 days. Nobody noticed until the invoice arrived. A $100/day cap would have stopped it at $100."
           />
           <StatCard
             stat="579 outages"
-            description="Anthropic experienced 579 incidents in 12 months. Avg 29/month."
+            description="Anthropic had 579 incidents in 12 months. If your agents only talk to one provider, they went down 579 times too."
           />
           <StatCard
             stat="$82,314"
-            description="Stolen Gemini API key exploited for 48 hours. No spending cap."
+            description="A stolen Gemini API key was exploited for 48 hours straight. No spending cap existed to stop it. One did after the bill."
           />
         </div>
         <p className="mt-8 font-[family-name:var(--font-serif)] text-xl sm:text-2xl text-primary italic">
-          Observability tells you what went wrong. Solwyn prevents it.
+          Every one of these was preventable. That&apos;s the point.
         </p>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-6">
+        <hr className="border-border" />
+      </div>
+
+      {/* How It Works — moved up (answer "how hard?" immediately after "why?") */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <HowItWorks />
       </section>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -106,19 +113,19 @@ export default function Home() {
       {/* Feature Pillars */}
       <section className="max-w-6xl mx-auto px-6 py-20 space-y-24">
         <FeaturePillar
-          headline="Stop the bleeding before it starts."
-          body="Set daily, weekly, or monthly budgets per project. Alert-only by default — your agents keep running and you get notified. Opt into hard deny when you're ready. The SDK enforces caps locally, even if Solwyn's cloud is unreachable."
+          headline="Set the limit before the damage starts."
+          body="Daily, weekly, or monthly budgets per project. Alert-only mode keeps agents running while you get notified. Hard-deny mode kills the request before it reaches the provider. The SDK enforces caps locally — even if Solwyn's cloud is unreachable, your limits still hold."
           visual={<BudgetGauge />}
         />
         <FeaturePillar
-          headline="Your users notice nothing."
-          body="When a provider fails, the SDK automatically routes to your configured fallback — all client-side, no server involved. The circuit breaker tracks health locally. No manual intervention. No downtime."
+          headline="When your provider goes down, your agents don&apos;t."
+          body="The SDK routes to your configured fallback automatically — client-side, no server in the loop. A local circuit breaker tracks provider health and switches in milliseconds. Your users experience zero downtime. You don't get paged."
           visual={<CircuitBreakerDiagram />}
           reverse
         />
         <FeaturePillar
-          headline="Know which agent is burning the budget."
-          body="Per-project cost breakdown by model and time period. Real-time dashboard with current spend vs. budget. CSV export. API endpoint for custom dashboards. All powered by metadata — we never see your prompts."
+          headline="See exactly which agent is burning money."
+          body="Per-project cost breakdown by model and time period. Real-time spend vs. budget. Trend indicators that show you where costs are accelerating before they become a problem. All powered by metadata — your prompts never leave your environment."
           visual={<CostTable />}
         />
       </section>
@@ -145,27 +152,22 @@ export default function Home() {
         <hr className="border-border" />
       </div>
 
-      {/* How It Works */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <HowItWorks />
-      </section>
-
-      <div className="max-w-6xl mx-auto px-6">
-        <hr className="border-border" />
-      </div>
-
       {/* Bottom CTA */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-primary tracking-tight">
-          Built by a developer who got a $2,000 surprise bill.
+          The next surprise AI bill hasn&apos;t happened yet.
         </h2>
         <p className="mt-4 text-secondary max-w-lg mx-auto">
-          Solwyn exists because the tools that should have prevented it
-          didn&apos;t exist yet.
+          Three lines of Python. Under five minutes. Your agents get budget
+          limits, automatic failover, and cost visibility — and your prompts
+          never leave your environment.
         </p>
         <div className="mt-8 flex justify-center">
           <WaitlistForm />
         </div>
+        <p className="mt-3 text-xs text-muted">
+          Free tier. No credit card. No infrastructure changes.
+        </p>
       </section>
     </>
   );

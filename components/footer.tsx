@@ -31,7 +31,7 @@ export function Footer() {
           </a>
         </div>
         <span className="text-xs">
-          Built with obsessive attention to your privacy.
+          Your prompts never leave your environment.
         </span>
       </div>
     </footer>

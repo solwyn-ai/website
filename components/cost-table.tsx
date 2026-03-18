@@ -1,21 +1,21 @@
 const MOCK_DATA = [
   {
     project: "search-agent",
-    model: "gpt-4o",
+    model: "gpt-4.1",
     cost: "$142.30",
     trend: "↑ 23%",
     trendColor: "text-accent",
   },
   {
     project: "chat-bot",
-    model: "claude-sonnet",
+    model: "claude-4-sonnet",
     cost: "$87.50",
     trend: "↓ 12%",
     trendColor: "text-green-600",
   },
   {
     project: "summarizer",
-    model: "gpt-4o-mini",
+    model: "gemini-2.5-flash",
     cost: "$12.80",
     trend: "→ flat",
     trendColor: "text-muted",

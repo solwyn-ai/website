@@ -38,15 +38,15 @@ export function CircuitBreakerDiagram() {
       <div className="mt-5 space-y-2 text-xs font-[family-name:var(--font-mono)] text-secondary">
         <div className="flex items-center gap-2">
           <div className="w-1 h-1 rounded-full bg-accent" />
-          OpenAI 500 errors detected
+          Primary provider returning 500 errors
         </div>
         <div className="flex items-center gap-2">
           <div className="w-1 h-1 rounded-full bg-accent" />
-          Circuit opens &mdash; traffic routes to Anthropic
+          Circuit opens &mdash; traffic routes to fallback provider
         </div>
         <div className="flex items-center gap-2">
           <div className="w-1 h-1 rounded-full bg-green-600" />
-          OpenAI recovers &mdash; circuit closes
+          Primary recovers &mdash; circuit closes automatically
         </div>
       </div>
     </div>

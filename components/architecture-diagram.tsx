@@ -13,7 +13,7 @@ export function ArchitectureDiagram() {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-accent font-medium">Solwyn(</span>
-            <span className="text-primary">OpenAI()</span>
+            <span className="text-primary">your_llm_client</span>
             <span className="text-accent font-medium">)</span>
           </div>
           <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export function ArchitectureDiagram() {
             LLM Provider
           </div>
           <div className="font-[family-name:var(--font-mono)] text-[10px] text-muted">
-            OpenAI / Anthropic
+            Any provider you use
           </div>
         </div>
       </div>

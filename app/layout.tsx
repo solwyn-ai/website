@@ -13,9 +13,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Solwyn — The Control Plane That Never Sees Your Prompts",
+  title: "Solwyn — Stop Your AI Agents From Burning Money",
   description:
-    "Hard spending caps, automatic failover, and per-agent cost attribution for AI agents in production. Your prompts never leave your environment.",
+    "Hard spending caps, automatic failover, and per-agent cost attribution. Three lines of Python. Your prompts never leave your environment.",
 };
 
 export default function RootLayout({

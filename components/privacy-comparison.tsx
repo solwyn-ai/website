@@ -20,12 +20,17 @@ export function PrivacyComparison() {
   return (
     <div>
       <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-primary tracking-tight">
-        What Solwyn sees vs. what Solwyn never sees.
+        Architecture, not policy.
       </h2>
+      <p className="mt-3 text-secondary text-sm leading-relaxed max-w-2xl">
+        Any company can write a privacy policy. Solwyn is a local SDK — your
+        LLM calls go directly from your app to the provider. We are never in the
+        request path. This isn&apos;t a promise. It&apos;s how the code works.
+      </p>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="border border-border bg-cream p-6 rounded-sm">
           <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-4">
-            WHAT WE RECEIVE
+            METADATA WE RECEIVE
           </div>
           <ul className="space-y-2">
             {RECEIVES.map((item) => (
@@ -56,11 +61,6 @@ export function PrivacyComparison() {
           </ul>
         </div>
       </div>
-      <p className="mt-6 text-sm text-secondary italic">
-        This is architecture, not policy. The SDK is a local wrapper — your LLM
-        calls go directly from your app to the provider. Solwyn is never in the
-        request path.
-      </p>
     </div>
   );
 }

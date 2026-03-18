@@ -6,6 +6,7 @@ export function PricingCard({
   features,
   highlighted,
   badge,
+  cta,
 }: {
   name: string;
   price: string;
@@ -14,6 +15,7 @@ export function PricingCard({
   features: string[];
   highlighted?: boolean;
   badge?: string;
+  cta?: string;
 }) {
   return (
     <div
@@ -57,7 +59,7 @@ export function PricingCard({
             : "border border-border text-primary hover:bg-cream-dark"
         }`}
       >
-        Join waitlist
+        {cta || "Join waitlist"}
       </a>
     </div>
   );
