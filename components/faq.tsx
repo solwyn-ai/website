@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "What if Solwyn isn't worth it?",
-    a: "Every paid plan starts with a 14-day trial. No credit card required. If you don't see value, you never pay. And because Solwyn is a thin SDK wrapper, removing it takes one line of code — no migration, no lock-in, no cleanup.",
+    a: "Start with the free tier — 5K requests/month with full protection, no credit card required. If you outgrow it, upgrade. And because Solwyn is a thin SDK wrapper, removing it takes one line of code — no migration, no lock-in, no cleanup.",
   },
   {
     q: "Can I switch plans anytime?",

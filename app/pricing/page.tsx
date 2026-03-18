@@ -88,16 +88,13 @@ export default function PricingPage() {
             price="$49"
             period="/mo"
             description="$49/mo to protect against $47K mistakes. 959x return."
-            badge="MOST POPULAR"
-            highlighted
-            cta="Start 14-day trial"
+            cta="Join waitlist"
             features={[
               "50K requests/month",
               "3 projects",
               "Cost attribution by project + model",
               "30-day cost history",
               "Email + webhook alerts",
-              "14-day full trial",
             ]}
           />
           <PricingCard
@@ -105,7 +102,9 @@ export default function PricingPage() {
             price="$149"
             period="/mo"
             description="$15/agent/month for teams running 10+ agents."
-            cta="Start 14-day trial"
+            badge="MOST POPULAR"
+            highlighted
+            cta="Join waitlist"
             features={[
               "500K requests/month",
               "10 projects",
@@ -114,7 +113,6 @@ export default function PricingPage() {
               "Slack alerts",
               "30-day audit log",
               "Priority email support",
-              "14-day full trial",
             ]}
           />
           <PricingCard
@@ -122,7 +120,7 @@ export default function PricingPage() {
             price="$399"
             period="/mo"
             description="One incident costs more than a year of this plan."
-            cta="Start 14-day trial"
+            cta="Join waitlist"
             features={[
               "5M requests/month",
               "Unlimited projects",
@@ -131,7 +129,6 @@ export default function PricingPage() {
               "PagerDuty alerts",
               "1-year tamper-evident audit log",
               "Priority support + SLA",
-              "14-day full trial",
             ]}
           />
         </div>
