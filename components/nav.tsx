@@ -24,7 +24,7 @@ export function Nav() {
             SOLWYN
           </span>
           <span className="text-[10px] tracking-[0.2em] uppercase text-muted hidden sm:inline">
-            Control Plane
+            AI Cost Control
           </span>
         </Link>
 
@@ -54,7 +54,7 @@ export function Nav() {
             href="#waitlist"
             className="text-sm bg-primary text-cream px-4 py-2 hover:bg-primary/90 transition-colors"
           >
-            Get early access
+            Start free
           </a>
         </div>
 
@@ -102,7 +102,7 @@ export function Nav() {
             className="text-sm bg-primary text-cream px-4 py-2 text-center"
             onClick={() => setMenuOpen(false)}
           >
-            Get early access
+            Start free
           </a>
         </div>
       )}

@@ -3,13 +3,98 @@
 @theme {
   --color-cream: #f5f0e8;
   --color-cream-dark: #ebe6db;
+  --color-cream-light: #faf7f2;
   --color-primary: #1a1a1a;
   --color-secondary: #6b6155;
   --color-muted: #8a8070;
-  --color-accent: #c0392b;
+  --color-accent: #b7532a;
   --color-border: #d4cfc5;
   --color-code-dark: #1c1917;
+  --color-dark-bg: #151311;
+  --color-dark-surface: #1e1c19;
+  --color-dark-text: #e8e3da;
+  --color-dark-muted: #8a8070;
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-geist-mono);
+
+  --animate-fade-in-up: fade-in-up 0.5s ease-out both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+}
+
+/* Paper grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: multiply;
+}
+
+/* Scroll-triggered reveal animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reveal classes — applied by IntersectionObserver */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for card groups */
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 100ms; }
+.stagger-3 { transition-delay: 200ms; }
+
+/* Hover lift for interactive cards */
+.card-hover {
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+}
+
+/* Dark code blocks */
+.code-block {
+  background: var(--color-code-dark);
+  color: var(--color-dark-text);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-block .text-muted {
+  color: #6b6155;
+}
+
+.code-block .text-primary {
+  color: #e8e3da;
+}
+
+.code-block .text-accent {
+  color: #d4845a;
 }

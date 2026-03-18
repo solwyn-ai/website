@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { PricingCard } from "@/components/pricing-card";
+import { PricingTiers } from "@/components/pricing-toggle";
 import { PricingComparison } from "@/components/pricing-comparison";
 import { FAQ } from "@/components/faq";
 import { WaitlistForm } from "@/components/waitlist-form";
 
 export const metadata: Metadata = {
-  title: "Pricing — Solwyn",
+  title: "Pricing — Solwyn | $49/mo vs $47K Risk",
   description:
-    "Simple pricing for AI agent cost control. Free tier, no credit card required. Your prompts never leave your environment.",
+    "The average uncontrolled agent incident costs $47,000. Solwyn starts free. Hard spending caps, automatic failover, and privacy by architecture.",
 };
 
 export default function PricingPage() {
@@ -16,82 +16,56 @@ export default function PricingPage() {
       {/* Header */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-12">
         <h1 className="font-[family-name:var(--font-serif)] text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary">
-          Simple pricing. No surprises.
+          The average uncontrolled agent incident costs $47,000.
         </h1>
         <p className="mt-4 text-lg text-secondary">
-          Every tier includes the same privacy guarantee. Your prompts never
-          leave your environment.
+          Every plan includes hard spending caps, automatic failover, and the
+          same privacy guarantee: your prompts never leave your environment.
         </p>
       </section>
 
-      {/* Tier Cards */}
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <PricingCard
-            name="FREE"
-            price="$0"
-            period="/mo"
-            description="Try Solwyn with zero friction."
-            features={[
-              "5K requests/month",
-              "1 project",
-              "Spending caps",
-              "Circuit breaker + failover",
-              "Cost attribution by project",
-              "7-day cost history",
-              "Email alerts",
-              "No credit card required",
-            ]}
-          />
-          <PricingCard
-            name="SOLO"
-            price="$49"
-            period="/mo"
-            description="For developers shipping AI agents."
-            badge="MOST POPULAR"
-            highlighted
-            features={[
-              "50K requests/month",
-              "3 projects",
-              "Cost attribution by project + model",
-              "30-day cost history",
-              "Email + webhook alerts",
-              "14-day full trial",
-            ]}
-          />
-          <PricingCard
-            name="TEAM"
-            price="$149"
-            period="/mo"
-            description="For engineering teams running multiple agents."
-            features={[
-              "500K requests/month",
-              "10 projects",
-              "Cost attribution + team breakdown",
-              "90-day cost history",
-              "Slack alerts",
-              "30-day audit log",
-              "Priority email support",
-              "14-day full trial",
-            ]}
-          />
-          <PricingCard
-            name="BUSINESS"
-            price="$399"
-            period="/mo"
-            description="For platform teams with compliance needs."
-            features={[
-              "5M requests/month",
-              "Unlimited projects",
-              "Full cost breakdown",
-              "1-year cost history",
-              "PagerDuty alerts",
-              "1-year tamper-evident audit log",
-              "Priority support + SLA",
-              "14-day full trial",
-            ]}
-          />
+      {/* Cost-of-inaction anchor */}
+      <section className="max-w-6xl mx-auto px-6 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="border border-border bg-cream p-5 rounded-sm">
+            <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-2">
+              WITHOUT SOLWYN
+            </div>
+            <div className="font-[family-name:var(--font-serif)] text-2xl text-primary">
+              $47,000
+            </div>
+            <p className="mt-1 text-xs text-secondary">
+              What one recursive agent cost. No cap. No alert. 11 days.
+            </p>
+          </div>
+          <div className="border border-accent/30 bg-cream p-5 rounded-sm">
+            <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-accent mb-2">
+              WITH SOLWYN SOLO
+            </div>
+            <div className="font-[family-name:var(--font-serif)] text-2xl text-primary">
+              $588/yr
+            </div>
+            <p className="mt-1 text-xs text-secondary">
+              Hard spending caps. Alerts in seconds. Automatic failover.
+            </p>
+          </div>
+          <div className="border border-border bg-cream p-5 rounded-sm">
+            <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-2">
+              THE MATH
+            </div>
+            <div className="font-[family-name:var(--font-serif)] text-2xl text-primary">
+              80x
+            </div>
+            <p className="mt-1 text-xs text-secondary">
+              One prevented incident pays for 80 years of Solwyn.
+            </p>
+          </div>
         </div>
+      </section>
+
+      {/* Tier Cards with toggle */}
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <PricingTiers />
 
         {/* Enterprise strip */}
         <div className="mt-6 border border-border p-6 rounded-sm flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -109,6 +83,19 @@ export default function PricingPage() {
           >
             Contact us
           </a>
+        </div>
+      </section>
+
+      {/* Founder pricing strip */}
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="border border-accent/30 bg-cream p-6 rounded-sm text-center">
+          <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-accent mb-2">
+            EARLY ACCESS PRICING
+          </div>
+          <p className="text-sm text-primary font-medium">
+            Waitlist members lock in current pricing permanently &mdash; even
+            after prices increase at general availability.
+          </p>
         </div>
       </section>
 
@@ -141,15 +128,18 @@ export default function PricingPage() {
       {/* Bottom CTA */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-primary tracking-tight">
-          Built by a developer who got a $2,000 surprise bill.
+          Every plan includes the brakes. Pick your speed.
         </h2>
         <p className="mt-4 text-secondary max-w-lg mx-auto">
-          Solwyn exists because the tools that should have prevented it
-          didn&apos;t exist yet.
+          Start with the free tier. Upgrade when your agents do. Your prompts
+          never leave your environment on any plan.
         </p>
         <div className="mt-8 flex justify-center">
           <WaitlistForm id="waitlist-pricing" />
         </div>
+        <p className="mt-3 text-xs text-muted">
+          Free tier. No credit card. Cancel anytime.
+        </p>
       </section>
     </>
   );
