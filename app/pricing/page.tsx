@@ -5,9 +5,9 @@ import { FAQ } from "@/components/faq";
 import { WaitlistForm } from "@/components/waitlist-form";
 
 export const metadata: Metadata = {
-  title: "Pricing — Solwyn | $49/mo vs $47K Risk",
+  title: "Pricing — Solwyn | $49/mo or $47K in Hope",
   description:
-    "The average uncontrolled agent incident costs $47,000. Solwyn starts free. Hard spending caps, automatic failover, and privacy by architecture.",
+    "One prevented incident pays for 80 years of Solwyn. Start free — hard spending caps, automatic failover, and privacy by architecture. 90-day money-back guarantee.",
 };
 
 export default function PricingPage() {
@@ -16,11 +16,13 @@ export default function PricingPage() {
       {/* Header */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-12">
         <h1 className="font-[family-name:var(--font-serif)] text-4xl sm:text-5xl leading-[1.1] tracking-tight text-primary">
-          The average uncontrolled agent incident costs $47,000.
+          $49/month. Or $47,000 in hope.
         </h1>
-        <p className="mt-4 text-lg text-secondary">
-          Every plan includes hard spending caps, automatic failover, and the
-          same privacy guarantee: your prompts never leave your environment.
+        <p className="mt-4 text-lg text-secondary max-w-2xl">
+          One prevented incident pays for 80&nbsp;years of Solwyn. That&apos;s
+          not a pricing decision — it&apos;s a math problem. Every plan
+          includes hard spending caps, automatic failover, and the same
+          guarantee: your prompts never leave your environment.
         </p>
       </section>
 
@@ -123,6 +125,20 @@ export default function PricingPage() {
       {/* FAQ */}
       <section className="max-w-6xl mx-auto px-6 pb-16">
         <FAQ />
+      </section>
+
+      {/* Risk reversal */}
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="border border-border bg-cream p-6 rounded-sm text-center">
+          <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-2">
+            ZERO-RISK GUARANTEE
+          </div>
+          <p className="text-sm text-primary font-medium max-w-xl mx-auto">
+            If Solwyn doesn&apos;t save you at least 10x your subscription cost
+            in the first 90&nbsp;days, we&apos;ll refund every penny. No
+            questions asked.
+          </p>
+        </div>
       </section>
 
       {/* Bottom CTA */}

@@ -5,11 +5,12 @@ export function CompetitorTable() {
         Other tools watch. Solwyn prevents.
       </h2>
       <p className="text-secondary text-sm leading-relaxed max-w-2xl">
-        AI gateways and proxy-based platforms route every LLM call through
-        their servers. They see your prompts, add latency, and become a single
-        point of failure. When something goes wrong, they show you a dashboard.
-        Solwyn is a local SDK. It enforces limits before the request is sent,
-        fails over without a server in the loop, and never sees your data.
+        Helicone, Portkey, and LiteLLM route every LLM call through their
+        servers — they see your prompts, add latency, and become a single
+        point of failure. LangSmith and Langfuse log everything after the
+        fact but can&apos;t stop a runaway agent mid-loop. Solwyn is a local
+        SDK. It enforces limits before the request is sent, fails over without
+        a server in the loop, and never sees your data.
       </p>
 
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -17,6 +18,7 @@ export function CompetitorTable() {
           <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-3">
             PROXY-BASED PLATFORMS
           </div>
+          <p className="text-xs text-muted mb-2">Helicone, Portkey, LiteLLM</p>
           <p className="text-sm text-secondary leading-relaxed">
             Route every LLM call through their infrastructure. They see your
             prompts, responses, and function calls. They add latency. They
@@ -28,6 +30,7 @@ export function CompetitorTable() {
           <div className="font-[family-name:var(--font-mono)] text-xs tracking-wider text-muted mb-3">
             OBSERVABILITY TOOLS
           </div>
+          <p className="text-xs text-muted mb-2">LangSmith, Langfuse</p>
           <p className="text-sm text-secondary leading-relaxed">
             Log everything after the fact. Great dashboards. But when a
             recursive agent burns $47,000 overnight, the dashboard just shows

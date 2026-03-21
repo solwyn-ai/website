@@ -21,14 +21,15 @@ export default function Home() {
           <div className="flex-1 max-w-xl">
             <Reveal>
               <h1 className="font-[family-name:var(--font-serif)] text-5xl sm:text-6xl lg:text-[4.25rem] leading-[1.05] tracking-tight text-primary">
-                Your AI agents don&apos;t have a spending limit.
+                A recursive agent burned $47,000 in 11&nbsp;days. Nobody noticed.
               </h1>
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-6 text-lg text-secondary leading-relaxed">
-                A recursive agent cost someone $47,000. A forgotten staging
-                deploy doubled another team&apos;s bill for three weeks. Three
-                lines of Python would have stopped both.
+                Three lines of Python would have stopped it. Solwyn wraps your
+                existing LLM client with hard spending caps, automatic failover,
+                and cost attribution — set up in under five minutes, and your
+                prompts never leave your environment.
               </p>
             </Reveal>
 
@@ -99,19 +100,19 @@ export default function Home() {
           <Reveal delay={0} className="flex-1">
             <StatCard
               stat="$47,000"
-              description="A recursive LangChain agent ran for 11 days. Nobody noticed until the invoice arrived. A $100/day cap would have stopped it at $100."
+              description="A 4-person startup shipped a LangChain agent on a Friday. The recursive loop ran for 11 days. The CEO found out from the AWS billing alert — not the engineering team. A $100/day cap would have stopped it at $100."
             />
           </Reveal>
           <Reveal delay={100} className="flex-1">
             <StatCard
               stat="579 outages"
-              description="Anthropic had 579 incidents in 12 months. If your agents only talk to one provider, they went down 579 times too."
+              description="Anthropic went down 579 times in 12 months. If your agents only talk to one provider, your users experienced 579 failures — and you probably found out when they churned, not when it happened."
             />
           </Reveal>
           <Reveal delay={200} className="flex-1">
             <StatCard
               stat="$14,000"
-              description="A staging deployment ran alongside production for three weeks. Double the traffic, double the cost. A per-project budget would have flagged it on day one."
+              description="A staging environment was accidentally left running alongside production for three weeks. Same agents, same traffic, double the bill. A per-project budget would have caught it on day one."
             />
           </Reveal>
         </div>
@@ -187,12 +188,40 @@ export default function Home() {
         <hr className="border-border" />
       </div>
 
+      {/* Founder story */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <Reveal>
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-10 rounded-full bg-primary text-cream flex items-center justify-center font-medium text-sm">
+                C
+              </div>
+              <div>
+                <div className="text-sm font-medium text-primary">Christian</div>
+                <div className="text-xs text-muted">Founder, Solwyn</div>
+              </div>
+            </div>
+            <p className="text-secondary leading-relaxed">
+              &ldquo;I built Solwyn after watching a client&apos;s staging
+              environment silently double their AI bill for three weeks. The
+              tools that existed could show you the dashboard after the damage
+              was done. None of them could stop it. So I built the brakes.&rdquo;
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-6">
+        <hr className="border-border" />
+      </div>
+
       {/* Bottom CTA — dark for visual weight */}
       <section className="bg-dark-bg">
         <div className="max-w-6xl mx-auto px-6 py-24 text-center">
           <Reveal>
             <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl text-dark-text tracking-tight">
-              The next surprise AI bill hasn&apos;t happened yet.
+              The next surprise AI bill hasn&apos;t happened yet. Make sure
+              it&apos;s not yours.
             </h2>
             <p className="mt-4 text-dark-muted max-w-lg mx-auto">
               Three lines of Python. Under five minutes. Your agents get budget

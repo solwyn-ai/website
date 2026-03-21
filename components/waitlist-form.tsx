@@ -51,46 +51,53 @@ export function WaitlistForm({ id, dark }: { id?: string; dark?: boolean }) {
               strokeLinejoin="round"
             />
           </svg>
-          You&apos;re in. We&apos;ll email you when the SDK is ready.
+          You&apos;re in. Check your inbox — we&apos;re sending the AI Cost
+          Control Checklist and early access details.
         </div>
         <p className={`text-xs ${dark ? "text-dark-muted" : "text-muted"}`}>
-          Early access members lock in current pricing permanently.
+          Founding members lock in current pricing for life — even after we
+          raise prices at GA.
         </p>
       </div>
     );
   }
 
   return (
-    <form id={id} onSubmit={handleSubmit} className="flex gap-2 max-w-md relative">
-      <input
-        type="email"
-        required
-        placeholder="you@company.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={`flex-1 border px-4 py-2.5 text-sm focus:outline-none transition-colors ${
-          dark
-            ? "bg-dark-surface border-white/10 text-dark-text placeholder:text-dark-muted focus:border-white/30"
-            : "bg-cream-dark border-border text-primary placeholder:text-muted focus:border-secondary"
-        }`}
-        disabled={state === "loading"}
-      />
-      <button
-        type="submit"
-        disabled={state === "loading"}
-        className={`px-5 py-2.5 text-sm font-medium transition-colors disabled:opacity-60 whitespace-nowrap ${
-          dark
-            ? "bg-cream text-primary hover:bg-cream/90"
-            : "bg-primary text-cream hover:bg-primary/90"
-        }`}
-      >
-        {state === "loading" ? "..." : "Protect my AI spend"}
-      </button>
-      {state === "error" && (
-        <p className="text-accent text-xs mt-1 absolute -bottom-6 left-0">
-          Something went wrong. Try again.
-        </p>
-      )}
-    </form>
+    <div className="max-w-md">
+      <form id={id} onSubmit={handleSubmit} className="flex gap-2 relative">
+        <input
+          type="email"
+          required
+          placeholder="you@company.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={`flex-1 border px-4 py-2.5 text-sm focus:outline-none transition-colors ${
+            dark
+              ? "bg-dark-surface border-white/10 text-dark-text placeholder:text-dark-muted focus:border-white/30"
+              : "bg-cream-dark border-border text-primary placeholder:text-muted focus:border-secondary"
+          }`}
+          disabled={state === "loading"}
+        />
+        <button
+          type="submit"
+          disabled={state === "loading"}
+          className={`px-5 py-2.5 text-sm font-medium transition-colors disabled:opacity-60 whitespace-nowrap ${
+            dark
+              ? "bg-cream text-primary hover:bg-cream/90"
+              : "bg-primary text-cream hover:bg-primary/90"
+          }`}
+        >
+          {state === "loading" ? "..." : "Get early access free"}
+        </button>
+        {state === "error" && (
+          <p className="text-accent text-xs mt-1 absolute -bottom-6 left-0">
+            Something went wrong. Try again.
+          </p>
+        )}
+      </form>
+      <p className={`mt-2 text-xs ${dark ? "text-dark-muted/70" : "text-muted"}`}>
+        Founding member pricing locked for life. Limited early access spots.
+      </p>
+    </div>
   );
 }
